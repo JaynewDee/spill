@@ -1,20 +1,22 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { ContentLayout } from "./ContentLayout";
-import Login from "./Login";
+
+import Home from "./Home";
 import Profile from "./Profile";
+import Login from "./Login";
 import Signup from "./Signup";
+
 const Main = () => {
   return (
-    <div>
+    <div className="content-layout">
       <Routes>
-        <Route path="/" element={<Profile />}></Route>
+        <Route path="/" element={<Home />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>
   );
 };
-const MainLayout = ContentLayout({})(Main, null);
 
-export { MainLayout };
+export { Main };

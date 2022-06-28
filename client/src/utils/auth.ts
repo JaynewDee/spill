@@ -1,7 +1,14 @@
 import decode from "jwt-decode";
 
+interface ProfileTypes {
+  data: {
+    username: string;
+    email: string;
+    password: string;
+  };
+}
 class AuthService {
-  getProfile() {
+  getProfile(): ProfileTypes {
     return decode(this.getToken());
   }
 

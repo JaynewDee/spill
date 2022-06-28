@@ -12,10 +12,12 @@ const Header = () => {
   return (
     <header className="simple-header">
       <section className="title">
-        <Link className="quill-left quill" to="/">
-          <RiQuillPenLine size={"2rem"} />
-        </Link>
-        <h1>Spill </h1>
+        <div className="title-wrapper">
+          <Link className="quill-left quill" to="/">
+            <RiQuillPenLine size={"2rem"} />
+          </Link>
+          <h1>Spill </h1>
+        </div>
         <h3 className="subtitle">empty your head.</h3>
         {/* <Link className="quill-right quill" to="/">
           <RiQuillPenLine size={"1.5rem"} />
@@ -25,9 +27,12 @@ const Header = () => {
       <nav className="nav-links">
         <Link to="/">Home</Link>
         {Auth.loggedIn() ? (
-          <Link to="/" onClick={logout}>
-            Logout
-          </Link>
+          <>
+            <Link to="/profile">Profile</Link>
+            <Link to="/" onClick={logout}>
+              Logout
+            </Link>
+          </>
         ) : (
           <>
             <Link to="/signup">Signup</Link>

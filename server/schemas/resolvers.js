@@ -10,6 +10,13 @@ const resolvers = {
     user: async (parent, { email }) => {
       return User.findOne();
     },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id });
+      } else {
+        throw new AuthenticationError(`No user found!`);
+      }
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {

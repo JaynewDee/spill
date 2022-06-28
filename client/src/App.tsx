@@ -7,9 +7,10 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import Header from "./components/Header";
-import { MainLayout } from "./pages/Main";
+import { Main } from "./pages/Main";
 import HRule from "./components/HRule";
-
+import { GiOwl } from "react-icons/gi";
+import { UserContextProvider } from "./context/user";
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -37,11 +38,14 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <Header />
-        <HRule />
-        <MainLayout></MainLayout>
-      </div>
+      <UserContextProvider>
+        <div className="App">
+          <Header />
+          {HRule(GiOwl)({})}
+          <Main />
+          {HRule(GiOwl)({})}
+        </div>
+      </UserContextProvider>
     </ApolloProvider>
   );
 }
