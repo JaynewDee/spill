@@ -5,7 +5,6 @@ import Auth from "../utils/auth";
 import { QUERY_USER } from "../utils/queries";
 const Profile = () => {
   const { user, signin, signout }: any = useUserContext();
-  console.log(user);
   const userEmail = Auth.getProfile().data.email;
   const { loading, data } = useQuery(QUERY_USER, {
     variables: { email: userEmail },
@@ -14,7 +13,7 @@ const Profile = () => {
   useEffect(() => {
     signin(data);
   }, [data, signin]);
-  data ? console.log(data) : console.log(`no data`);
+
   if (!user) {
     return (
       <h4>
@@ -22,6 +21,8 @@ const Profile = () => {
         sign up or log in!
       </h4>
     );
+  } else if (loading) {
+    return <div> Loading User Profile, thank you for your patience.</div>;
   } else {
     return (
       <div>
