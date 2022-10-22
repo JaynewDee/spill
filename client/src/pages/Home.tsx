@@ -9,8 +9,15 @@ const Home = () => {
 
   if (!loggedIn) {
     return <h3>HEADER3</h3>;
+  } else {
+    const profile = Auth.getProfile();
+    console.log(profile);
+    return (
+      <>
+        <textarea className="page" name="" id=""></textarea>
+      </>
+    );
   }
-  return <div>Home</div>;
 };
 
 export default Home;

@@ -5,17 +5,12 @@ import Auth from "../utils/auth";
 import { QUERY_USER } from "../utils/queries";
 import { UserDetails } from "../components/UserDetails";
 const Profile = () => {
-  const { user, signin, signout }: any = useUserContext();
-  const userEmail = Auth.getProfile().data.email;
+  const loggedIn = Auth.loggedIn();
   const { loading, data } = useQuery(QUERY_USER, {
-    variables: { email: userEmail },
+    variables: { email: loggedIn },
   });
 
-  useEffect(() => {
-    signin(data);
-  }, [data, signin]);
-
-  if (!user) {
+  if (!loggedIn) {
     return (
       <h4>
         You need to be logged in to see this. Use the navigation links above to
