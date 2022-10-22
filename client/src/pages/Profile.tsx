@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useUserContext } from "../context/user";
 import Auth from "../utils/auth";
 import { QUERY_USER } from "../utils/queries";
+import { UserDetails } from "../components/UserDetails";
 const Profile = () => {
   const { user, signin, signout }: any = useUserContext();
   const userEmail = Auth.getProfile().data.email;
@@ -25,9 +26,9 @@ const Profile = () => {
     return <div> Loading User Profile, thank you for your patience.</div>;
   } else {
     return (
-      <div>
-        <h1>Welcome, {user.user.username}</h1>
-      </div>
+      <>
+        <UserDetails />
+      </>
     );
   }
 };
