@@ -127,7 +127,7 @@ header {
 .content-layout {
   margin: 1.5rem auto;
   min-height: 60vh;
-  max-width: 66%;
+  width: 90%;
 }
 .form-content {
   display: flex;
@@ -159,13 +159,36 @@ form > button {
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 66vw;
+  margin: 0 auto;
+}
+.details-box h3 {
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
+.details-box h3 span {
+  font-size: 1rem;
+}
+.page-frame {
+  margin: 0 10rem;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.settings-box {
+  border: 1px solid rgba(255, 255, 255, 0.307);
+  width: 66vw;
+  margin: 0 auto;
+}
+.page-settings {
 }
 .page {
   height: 60rem;
-  width: 66vw;
+  width: 66%;
   margin: 3rem auto;
   background: none;
   resize: none;
+  caret-color: white;
+  color: white;
 }
 /* .username {
   color: rgba(0, 121, 145, 0.9);

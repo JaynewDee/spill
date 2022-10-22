@@ -1,5 +1,7 @@
 import { useQuery } from "@apollo/client";
 import React, { useEffect } from "react";
+import Page from "../components/Page";
+import PageFrame from "../components/PageFrame";
 import { useUserContext } from "../context/user";
 import Auth from "../utils/auth";
 import { QUERY_USER } from "../utils/queries";
@@ -14,7 +16,7 @@ const Home = () => {
     console.log(profile);
     return (
       <>
-        <textarea className="page" name="" id=""></textarea>
+        <PageFrame />
       </>
     );
   }
